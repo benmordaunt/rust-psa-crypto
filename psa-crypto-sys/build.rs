@@ -172,7 +172,9 @@ mod common {
             .header("src/c/shim.h")
             .blocklist_type("max_align_t")
             .generate_comments(false)
-            .size_t_is_usize(true);
+            .size_t_is_usize(true)
+            .use_core()
+            .ctypes_prefix("::core::ffi");
 
         #[cfg(feature = "prefix")]
         {
@@ -324,9 +326,7 @@ mod operations {
                 "-DMBEDTLS_CONFIG_FILE='\"{}\"'",
                 common::CONFIG_FILE
             ))
-            .cflag("-specs=nano.specs")
-            .cflag("-nostdlib")
-            .define("CMAKE_C_COMPILER_WORKS", "1")
+            .define("CMAKE_TRY_COMPILE_TARGET_TYPE", "STATIC_LIBRARY")
             .define("ENABLE_PROGRAMS", "OFF")
             .define("ENABLE_TESTING", "OFF")
             .build();
