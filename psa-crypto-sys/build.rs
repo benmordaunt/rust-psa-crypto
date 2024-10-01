@@ -321,7 +321,7 @@ mod operations {
         let mbed_build_path = Config::new(&mbedtls_dir)
             .cflag(format!("-I{}", out_dir))
             .cflag(format!(
-                "-DMBEDTLS_CONFIG_FILE='\"{}\"'",
+                "-DMBEDTLS_CONFIG_FILE='\"{}\"' -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY",
                 common::CONFIG_FILE
             ))
             .define("ENABLE_PROGRAMS", "OFF")
