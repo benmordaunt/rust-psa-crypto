@@ -324,6 +324,8 @@ mod operations {
                 "-DMBEDTLS_CONFIG_FILE='\"{}\"'",
                 common::CONFIG_FILE
             ))
+            .cflag("-specs=nano.specs")
+            .cflag("-nostdlib")
             .define("CMAKE_TRY_COMPILE_TARGET_TYPE", "STATIC_LIBRARY")
             .define("ENABLE_PROGRAMS", "OFF")
             .define("ENABLE_TESTING", "OFF")
