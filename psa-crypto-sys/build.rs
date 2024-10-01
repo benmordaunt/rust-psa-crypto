@@ -326,7 +326,7 @@ mod operations {
             ))
             .cflag("-specs=nano.specs")
             .cflag("-nostdlib")
-            .define("CMAKE_TRY_COMPILE_TARGET_TYPE", "STATIC_LIBRARY")
+            .define("CMAKE_C_COMPILER_WORKS", "1")
             .define("ENABLE_PROGRAMS", "OFF")
             .define("ENABLE_TESTING", "OFF")
             .build();
